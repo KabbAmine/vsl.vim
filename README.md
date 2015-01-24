@@ -12,6 +12,7 @@ vsl
 │   └── lib.vim
 ├── general
 │   └── lib.vim
-└── string
-    └── lib.vim
+└── type
+    ├── list.vim
+    └── string.vim
 ```
