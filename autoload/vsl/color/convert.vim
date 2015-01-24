@@ -98,7 +98,7 @@ fun! vsl#color#convert#Hex2Rgb(hexCol)
     call remove(l:hexColL, 0)
     call remove(l:hexColL, 3, -1)
 
-    let s:color = ""
+    let l:color = ""
     for l:element in l:hexColL
         let l:rgbElem = str2nr(l:element, 16)
         let l:rgbElem = string(l:rgbElem)
@@ -133,8 +133,8 @@ fun! vsl#color#convert#Rgb2Hsl(rgbCol)
 	let l:g = l:rgbColL[1] / 255.0
 	let l:b = l:rgbColL[2] / 255.0
 
-	let l:min = vsl#general#lib#GetMinVal([l:r,l:g,l:b])
-	let l:max = vsl#general#lib#GetMaxVal([l:r,l:g,l:b])
+	let l:min = vsl#type#list#GetMinVal([l:r,l:g,l:b])
+	let l:max = vsl#type#list#GetMaxVal([l:r,l:g,l:b])
 	let l:delta = l:max - l:min
 
 	let l:l = (l:max + l:min) / 2.0

@@ -5,34 +5,6 @@
 " Maintainer   : Kabbaj Amine <amine.kabb@gmail.com>
 " License      : This file is placed in the public domain.
 
-fun! vsl#general#lib#GetMinVal(list)
-	" Return the minimum value of a list.
-
-	let l:min = a:list[0]
-	if l:min > a:list[1]
-		let l:min = a:list[1]
-	endif
-	if l:min > a:list[2]
-		let l:min = a:list[2]
-	endif
-
-	return l:min
-
-endfun
-fun! vsl#general#lib#GetMaxVal(list)
-	" Return the maximum value of a list.
-
-	let l:max = a:list[0]
-	if l:max < a:list[1]
-		let l:max = a:list[1]
-	endif
-	if l:max < a:list[2]
-		let l:max = a:list[2]
-	endif
-
-	return l:max
-
-endfun
 fun! vsl#general#lib#GetVisualSelection()
 	" Return the visual selection.
 
@@ -67,11 +39,10 @@ fun! vsl#general#lib#ShowMessage(messageTypeNumber, messageContent)
 	echohl None
 
 endfun
-fun! vsl#general#lib#SetVariable(variable, value)
+fun! vsl#general#lib#DefineVariable(variable, value)
 	" Set value to a:variable if she doesn't exist.
-	
-	if !exists("a:variable")
-		let a:variable = a:value
+
+	if !exists(a:variable)
+		let {a:variable} = a:value
 	endif
 endfun
-
