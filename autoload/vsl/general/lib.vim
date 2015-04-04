@@ -5,6 +5,16 @@
 " Maintainer   : Kabbaj Amine <amine.kabb@gmail.com>
 " License      : This file is placed in the public domain.
 
+fun! vsl#general#lib#GetOsName() " {{{1
+	" Return used OS name.
+
+	if has('win32')
+		let l:os = 'win'
+	elseif has('unix')
+		let l:os = 'unix'
+	endif
+	return l:os
+endfunction
 fun! vsl#general#lib#GetVisualSelection() " {{{1
 	" Return the visual selection.
 
@@ -45,6 +55,46 @@ fun! vsl#general#lib#DefineVariable(variable, value) " {{{1
 	if !exists(a:variable)
 		let {a:variable} = a:value
 	endif
+endfun
+fun! vsl#general#lib#OpenTerm(...) " {{{1
+	" Open terminal in dir passed in argument or pwd by default.
+
+	let l:dir = (a:0 ==# 0) || (a:1 ==# '') ? '"' . getcwd() . '"' : '"' . a:1 . '"'
+	let l:os = vsl#general#lib#GetOsName()
+	let l:termCmd = {
+				\ 'unix':
+					\{
+						\ 'h': 'exo-open --launch TerminalEmulator ',
+						\ 'b': '--working-directory ',
+						\ 't': ' &'
+					\},
+				\ 'win':
+					\{
+					\ 'h': 'start cmd /k ',
+						\ 'b': 'cd ',
+						\ 't': ''
+					\}
+			\}
+
+	exec 'silent :!' . l:termCmd[l:os].h . l:termCmd[l:os].b . l:dir . l:termCmd[l:os].t
+endfun
+fun! vsl#general#lib#OpenFM(...) " {{{1
+	" Open default file manager in dir passed in argument or pwd by default.
+
+	let l:dir = (a:0 ==# 0) || (a:1 ==# '') ? '"' . getcwd() . '"' : '"' . a:1 . '"'
+	let l:os = vsl#general#lib#GetOsName()
+	let l:fmCmd = {
+				\ 'unix': {
+					\ 'h': 'xdg-open ',
+					\ 't': ' &'
+				\},
+				\ 'win': {
+					\ 'h': 'start explorer ',
+					\ 't': ''
+				\}
+			\}
+
+	exec 'silent :!' . l:fmCmd[l:os].h . l:dir . l:fmCmd[l:os].t
 endfun
 " }}}
 
