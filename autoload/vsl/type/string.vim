@@ -5,7 +5,7 @@
 " Maintainer   : Kabbaj Amine <amine.kabb@gmail.com>
 " License      : This file is placed in the public domain.
 
-fun! vsl#type#string#Set1LetterUpperCase(string) " {{{1
+fun! vsl#type#string#First2Upp(string) " {{{1
 	" Make the 1st letter of a string in uppercase.
 
 	if !empty(a:string)
