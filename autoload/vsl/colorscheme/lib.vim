@@ -1,11 +1,11 @@
 " Functions & utilities for colorschems in Vim.
 
 " Creation     : 2015-01-24
-" Modification : 2015-01-24
+" Modification : 2015-04-04
 " Maintainer   : Kabbaj Amine <amine.kabb@gmail.com>
 " License      : This file is placed in the public domain.
 
-fun! vsl#colorscheme#lib#Hi(groupName, bgColor, fgColor, option)
+fun! vsl#colorscheme#lib#Hi(groupName, bgColor, fgColor, option) " {{{1
 	" Set higlighting colors of specified group name
 
 	let l:bgColor = type(a:bgColor) == type('NONE') ? ['NONE', 'NONE'] : a:bgColor
@@ -20,3 +20,6 @@ fun! vsl#colorscheme#lib#Hi(groupName, bgColor, fgColor, option)
 
 	exe l:command
 endfun
+" }}}
+
+" vim:ft=vim:fdm=marker:fmr={{{,}}}:

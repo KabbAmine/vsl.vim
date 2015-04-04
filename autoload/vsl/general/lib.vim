@@ -1,11 +1,11 @@
 " General functions.
 
 " Creation     : 2015-01-24
-" Modification : 2015-01-24
+" Modification : 2015-04-04
 " Maintainer   : Kabbaj Amine <amine.kabb@gmail.com>
 " License      : This file is placed in the public domain.
 
-fun! vsl#general#lib#GetVisualSelection()
+fun! vsl#general#lib#GetVisualSelection() " {{{1
 	" Return the visual selection.
 
 	let l:selection=getline("'<")
@@ -17,7 +17,7 @@ fun! vsl#general#lib#GetVisualSelection()
 	return l:selection[col1 - 1: col2 - 1]
 
 endfun
-fun! vsl#general#lib#ShowMessage(messageTypeNumber, messageContent)
+fun! vsl#general#lib#ShowMessage(messageTypeNumber, messageContent) " {{{1
 	" Show a message according to his highlighting type.
 	"	1- White (Normal).
 	"	2- Red (Warning).
@@ -39,10 +39,13 @@ fun! vsl#general#lib#ShowMessage(messageTypeNumber, messageContent)
 	echohl None
 
 endfun
-fun! vsl#general#lib#DefineVariable(variable, value)
+fun! vsl#general#lib#DefineVariable(variable, value) " {{{1
 	" Set value to a:variable if she doesn't exist.
 
 	if !exists(a:variable)
 		let {a:variable} = a:value
 	endif
 endfun
+" }}}
+
+" vim:ft=vim:fdm=marker:fmr={{{,}}}:

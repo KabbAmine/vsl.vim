@@ -1,4 +1,4 @@
-" 140 html base colors.
+" 140 html base colors {{{1
 " http://www.w3schools.com/tags/ref_colornames.asp
 let vsl#colors#html#names = {
             \ 'aliceblue': '#F0F8FF',
@@ -142,3 +142,6 @@ let vsl#colors#html#names = {
             \ 'yellow': '#FFFF00',
             \ 'yellowgreen': '#9ACD32'
             \ }
+" }}}
+
+" vim:ft=vim:fdm=marker:fmr={{{,}}}:

@@ -1,11 +1,11 @@
 " Color conversion functions.
 
 " Creation     : 2015-01-24
-" Modification : 2015-01-24
+" Modification : 2015-04-04
 " Maintainer   : Kabbaj Amine <amine.kabb@gmail.com>
 " License      : This file is placed in the public domain.
 
-fun! vsl#color#convert#Rgb2Hex(rgbCol)
+fun! vsl#color#convert#Rgb2Hex(rgbCol) " {{{1
     " Convert from rgb to hex:
     " 255, 0, 255 => #FF00FF
 
@@ -21,7 +21,7 @@ fun! vsl#color#convert#Rgb2Hex(rgbCol)
     return "#".l:color
 
 endfun
-fun! vsl#color#convert#Rgb2RgbPerc(rgbCol)
+fun! vsl#color#convert#Rgb2RgbPerc(rgbCol) " {{{1
     " Convert from rgb to rgb (%):
     " 255, 0, 255 => 100%, 0%, 100%
 
@@ -41,7 +41,7 @@ fun! vsl#color#convert#Rgb2RgbPerc(rgbCol)
     return l:color
 
 endfun
-fun! vsl#color#convert#RgbPerc2Hex(rgbPercCol)
+fun! vsl#color#convert#RgbPerc2Hex(rgbPercCol) " {{{1
     " Convert from rgb (%) to hex:
     " 100%, 0%, 100% => #FF00FF
 
@@ -51,7 +51,7 @@ fun! vsl#color#convert#RgbPerc2Hex(rgbPercCol)
     return l:color
 
 endfun
-fun! vsl#color#convert#RgbPerc2Rgb(rgbPercCol)
+fun! vsl#color#convert#RgbPerc2Rgb(rgbPercCol) " {{{1
     " Convert from rgb (%) to rgb:
     " 100%, 0%, 0% => 255, 0, 0
 
@@ -74,7 +74,7 @@ fun! vsl#color#convert#RgbPerc2Rgb(rgbPercCol)
     return l:color
 
 endfun
-fun! vsl#color#convert#Hex2Lit(hexCol)
+fun! vsl#color#convert#Hex2Lit(hexCol) " {{{1
     " Convert from hex to literal name.
     " #FF0000 => red
 
@@ -89,7 +89,7 @@ fun! vsl#color#convert#Hex2Lit(hexCol)
     return s:color
 
 endfun
-fun! vsl#color#convert#Hex2Rgb(hexCol)
+fun! vsl#color#convert#Hex2Rgb(hexCol) " {{{1
     " Convert from hex to rgb:
     " #FF00FF => 255, 0, 255
 
@@ -111,7 +111,7 @@ fun! vsl#color#convert#Hex2Rgb(hexCol)
 
     return l:color
 endfun
-fun! vsl#color#convert#Hex2RgbPerc(hexCol)
+fun! vsl#color#convert#Hex2RgbPerc(hexCol) " {{{1
     " Convert from hex to rgb (%):
     " #FF00FF => 100%, 0, 100%
 
@@ -121,7 +121,7 @@ fun! vsl#color#convert#Hex2RgbPerc(hexCol)
     return l:color
 
 endfun
-fun! vsl#color#convert#Rgb2Hsl(rgbCol)
+fun! vsl#color#convert#Rgb2Hsl(rgbCol) " {{{1
 	" Convert from rgb to hsl:
 	" 255, 0, 255 => 300, 100%, 50%
 	" Algorithm from http://www.easyrgb.com/index.php?X=MATH&H=18#text18
@@ -179,7 +179,7 @@ fun! vsl#color#convert#Rgb2Hsl(rgbCol)
 	return l:color
 
 endfun
-fun! vsl#color#convert#Hsl2Rgb(hslCol)
+fun! vsl#color#convert#Hsl2Rgb(hslCol) " {{{1
 	" Convert from hsl to rgb:
 	" 300, 100%, 50% => 255, 0, 255
 	" Algorithm from http://www.easyrgb.com/index.php?X=MATH&H=18#text18
@@ -215,7 +215,7 @@ fun! vsl#color#convert#Hsl2Rgb(hslCol)
 	return l:color
 
 endfun
-fun! vsl#color#convert#Hue2Rgb(v1, v2, vH)
+fun! vsl#color#convert#Hue2Rgb(v1, v2, vH) " {{{1
 
 	let l:v1 = a:v1
 	let l:v2 = a:v2
@@ -240,7 +240,7 @@ fun! vsl#color#convert#Hue2Rgb(v1, v2, vH)
 	return l:v1
 
 endfun
-fun! vsl#color#convert#Hsl2Hex(hslCol)
+fun! vsl#color#convert#Hsl2Hex(hslCol) " {{{1
 	" Convert from hsl to hex:
 	" 300, 100%, 50% => #FF00FF
 
@@ -250,7 +250,7 @@ fun! vsl#color#convert#Hsl2Hex(hslCol)
 	return l:color
 
 endfun
-fun! vsl#color#convert#Hex2Hsl(hexCol)
+fun! vsl#color#convert#Hex2Hsl(hexCol) " {{{1
 	" Convert from hex to hsl:
 	" #FF00FF => 300, 100%, 50%
 
@@ -260,3 +260,7 @@ fun! vsl#color#convert#Hex2Hsl(hexCol)
 	return l:color
 
 endfun
+" }}}
+
+" vim:ft=vim:fdm=marker:fmr={{{,}}}:
+"
